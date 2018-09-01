@@ -1,0 +1,2 @@
+# Scrapy_urlProblem
+scrapy爬虫中url包含特殊字符引发的惨案
