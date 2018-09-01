@@ -13,9 +13,14 @@ Scrapy爬虫url中存在特殊字符产生的问题
 问题是这样子的，我用以下代码区请求一个需要动态js加载的动态页面时request中的url应为存在#！特殊字符，进行函数输入后再输出url产生了变化，导致只爬取了网页框架不包含网页内容。（难受啊，困扰了好几天。nngt）
 
 代码如下：
- 
+![Alt Text](
+      https://github.com/appliance/Scrapy_urlProblem/blob/master/1.png
+    )
+
 测试代码（发现问题）
- 
+![Alt Text](
+      https://github.com/appliance/Scrapy_urlProblem/blob/master/2.png
+    )
 
 最终查找资料，也没能够得到通用的解决，只能部分修改
 
