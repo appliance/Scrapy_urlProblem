@@ -48,29 +48,41 @@ http://www.example.com/?color=#fff
 　　但是，浏览器实际发出的请求是：
 GET /?color= HTTP/1.1
 Host: www.example.com
+ 
 　　可以看到，"#fff"被省略了。只有将#转码为#，浏览器才会将其作为实义字符处理。也就是说，上面的网址应该被写成：
+  
 http://example.com/?color=#fff
+
 　　四、改变#不触发网页重载
+  
 　　单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页。
 　　比如，从
 http://www.example.com/index.html#location1
 　　改成
 http://www.example.com/index.html#location2
 　　浏览器不会重新向服务器请求index.html。
+  
 　　五、改变#会改变浏览器的访问历史
+  
 　　每一次改变#后的部分，都会在浏览器的访问历史中增加一个记录，使用"后退"按钮，就可以回到上一个位置。
 　　这对于ajax应用程序特别有用，可以用不同的#值，表示不同的访问状态，然后向用户给出可以访问某个状态的链接。
 　　值得注意的是，上述规则对IE 6和IE 7不成立，它们不会因为#的改变而增加历史记录。
+  
 　　六、window.location.hash读取#值
+  
 　　window.location.hash这个属性可读可写。读取时，可以用来判断网页状态是否改变；写入时，则会在不重载网页的前提下，创造一条访问历史记录。
+  
 　　七、onhashchange事件
+  
 　　这是一个HTML 5新增的事件，当#值发生变化时，就会触发这个事件。IE8+、Firefox 3.6+、Chrome 5+、Safari 4.0+支持该事件。
 　　它的使用方法有三种：
 window.onhashchange = func;
 <body onhashchange="func();">
 window.addEventListener("hashchange"， func, false);
 　　对于不支持onhashchange的浏览器，可以用setInterval监控location.hash的变化。
+ 
 　　八、Google抓取#的机制
+  
 　　默认情况下，Google的网络蜘蛛忽视URL的#部分。
 　　但是，Google还规定，如果你希望Ajax生成的内容被浏览引擎读取，那么URL中可以使用"#!"，Google会自动将其后面的内容转成查询字符串_escaped_fragment_的值。
 　　比如，Google发现新版twitter的URL如下：
